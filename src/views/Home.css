@@ -1,0 +1,14 @@
+.box-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.boxes img {
+  width: 100%;
+}
