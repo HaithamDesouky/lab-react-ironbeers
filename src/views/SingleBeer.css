@@ -1,0 +1,22 @@
+.single-beer {
+  max-width: 17vh;
+  max-height: 40vh;
+}
+
+.separated {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.separated h4 {
+  color: grey;
+}
+
+.separated h5 {
+  color: grey;
+}
+
+.separated p {
+  font-weight: bolder;
+}

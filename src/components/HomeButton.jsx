@@ -5,7 +5,11 @@ export default function HomeButton() {
   return (
     <div>
       <Link to="/">
-        <img src="/images/homenav.png" alt="homebutton" />
+        <img
+          src="/images/homenav.png"
+          alt="homebutton"
+          className="home-button"
+        />
       </Link>
     </div>
   );
