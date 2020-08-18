@@ -19,18 +19,8 @@ export default class CreateBeer extends React.Component {
 
   addBeer = (event) => {
     event.preventDefault();
-
-    const newBeer = {
-      name: event.target.name.value,
-      tagline: event.target.tagline.value,
-      description: event.target.description.value,
-      first_brewed: event.target.first_brewed.value,
-      brewers_tips: event.target.brewers_tips.value,
-      attenuation_level: Number(event.target.attenuation_level.value),
-      contributed_by: event.target.contributed_by.value,
-    };
-
-    addNewBeer(newBeer)
+    console.log(this.state.newBeer);
+    addNewBeer(this.state.newBeer)
       .then((message) => {
         console.log(message);
       })
@@ -39,12 +29,31 @@ export default class CreateBeer extends React.Component {
       });
   };
 
+  changeVals = (event) => {
+    event.preventDefault();
+    const property = event.target.name;
+    const value = event.target.value;
+
+    console.log(property, value);
+
+    this.setState({
+      newBeer: {
+        [property]: value,
+      },
+    });
+    console.log(this.state.newBeer);
+  };
+
   render() {
     return (
       <div>
         <div className="box-container">
           <h1>Create a beer</h1>
-          <form onSubmit={this.addBeer} method="post">
+          <form
+            onChange={this.changeVals}
+            onSubmit={this.addBeer}
+            method="post"
+          >
             <label htmlFor="name">Name</label>
             <input required type="text" name="name" />
             <label required htmlFor="tagline">
