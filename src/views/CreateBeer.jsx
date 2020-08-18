@@ -19,7 +19,7 @@ export default class CreateBeer extends React.Component {
 
   addBeer = (event) => {
     event.preventDefault();
-    console.log(this.state.newBeer);
+
     addNewBeer(this.state.newBeer)
       .then((message) => {
         console.log(message);
@@ -33,15 +33,16 @@ export default class CreateBeer extends React.Component {
     event.preventDefault();
     const property = event.target.name;
     const value = event.target.value;
+    const { newBeer } = { ...this.state };
+    const currentState = newBeer;
+    currentState[property] = value;
 
     console.log(property, value);
 
     this.setState({
-      newBeer: {
-        [property]: value,
-      },
+      newBeer: currentState,
     });
-    console.log(this.state.newBeer);
+    console.log('STATE IS HERE', this.state.newBeer);
   };
 
   render() {
